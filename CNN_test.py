@@ -8,7 +8,7 @@ import torch.nn as nn
 
 import torchvision
 from torchvision import datasets, models, transforms
-
+from PIL import Image
 import matplotlib.pyplot as plt
 import cv2
 
@@ -27,8 +27,7 @@ data_transforms = {
     ]),
 }
 
-
-data_dir = 'hymenoptera_data'
+data_dir = 'catdog_data'
 image_datasets = {x: datasets.ImageFolder(os.path.join(data_dir, x),
                                           data_transforms[x])
                   for x in ['train', 'val']}
@@ -39,8 +38,6 @@ dataset_sizes = {x: len(image_datasets[x]) for x in ['train', 'val']}
 class_names = image_datasets['train'].classes
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-
-
 
 test_model = torch.load('CNN_dogcat0810.pt')
 print('CNN_dogcat0810.pt is loaded')

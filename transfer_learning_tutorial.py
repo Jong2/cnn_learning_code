@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 from __future__ import print_function, division
 
 import torch
@@ -33,7 +32,7 @@ data_transforms = {
     ]),
 }
 
-data_dir = 'hymenoptera_data'
+data_dir = 'catdog_data'
 image_datasets = {x: datasets.ImageFolder(os.path.join(data_dir, x),
                                           data_transforms[x])
                   for x in ['train', 'val']}
@@ -143,7 +142,6 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
                 best_acc = epoch_acc
                 best_model_wts = copy.deepcopy(model.state_dict())
 
-        print()
 
     time_elapsed = time.time() - since
     print('Training complete in {:.0f}m {:.0f}s'.format(
@@ -226,6 +224,6 @@ model_ft = train_model(model_ft, criterion, optimizer_ft, exp_lr_scheduler,
 visualize_model(model_ft)
 
 
-torch.save(model_ft, 'CNN_dogcat0810.pt')
+torch.save(model_ft, 'CNN_dogcat0813.pt')
 print('Saved model')
 
