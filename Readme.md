@@ -12,8 +12,10 @@ To train a model(network):
 
 ```
 $ python transfer_learning_tutorial.py
+```
 
 To test the saved model(network):
 
 ```
 $ python CNN_test.py
+```
