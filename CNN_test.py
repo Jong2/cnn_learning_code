@@ -39,8 +39,14 @@ class_names = image_datasets['train'].classes
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-test_model = torch.load('CNN_dogcat0810.pt')
+path='CNN_dogcat0810.pt'
+
+if torch.cuda.is_available():
+    test_model = torch.load(path)
+else:
+    test_model=torch.load(path, map_location='cpu')
 print('CNN_dogcat0810.pt is loaded')
+
 
 def imshow(inp, title=None):
     """Imshow for Tensor."""
