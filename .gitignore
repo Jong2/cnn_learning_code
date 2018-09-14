@@ -3,3 +3,4 @@ catdog_data/*
 *.pyc
 *.pth
 *.jpg
+*.vscode
